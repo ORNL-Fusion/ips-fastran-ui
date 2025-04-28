@@ -1,0 +1,11 @@
+&inhcd
+    nsrc = 1
+    Pe = 0.0
+    Pi = 0.0
+    xmid = 0.5
+    xwid = 0.15
+    
+    j0_seed = 0.4
+    x0_seed = 0.0
+    drho_seed = 0.075
+/
