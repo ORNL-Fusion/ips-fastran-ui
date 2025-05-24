@@ -1,0 +1,18 @@
+from node:latest
+
+volume /host
+
+run npm update -g npm
+
+# use a copied directory for react_template
+copy react_template /react_template
+
+workdir /react_template
+
+run npm install
+
+run npm run build
+
+expose 3000
+
+cmd ["npm", "run", "dev"]
