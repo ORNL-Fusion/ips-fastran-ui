@@ -1,5 +1,3 @@
-# ips-fastran-ui
-
 Description:
 
   This repo contains two containers, one in directory frontend, one in directory backend.
@@ -12,10 +10,10 @@ Description:
 
   Design justification:
 
-  Why are we plotting data in the backend and sending the svg to the frontend instead of
-  sending the data to the frontend and plotting it there? Because this webapp will wrap an
-  existing command line workflow in which all the graphs are produced with matplotlib in
-  python. We don't want to rewrite all that functionality at least initially.
+    Why are we plotting data in the backend and sending the svg to the frontend instead of
+    sending the data to the frontend and plotting it there? Because this webapp will wrap an
+    existing command line workflow in which all the graphs are produced with matplotlib in
+    python. We don't want to rewrite all that functionality at least initially.
 
 
 Instructions:
@@ -46,8 +44,3 @@ Instructions:
   To see the frontend, go to localhost:3000
 
   You should see the same graph
-
-![image](https://github.com/user-attachments/assets/4e3eefed-114b-417f-a654-ca1154df0829)
-
-![image](https://github.com/user-attachments/assets/7f9736b9-e30c-40a5-9f52-117578a84c79)
-
