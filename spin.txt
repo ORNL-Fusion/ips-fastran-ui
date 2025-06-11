@@ -1,0 +1,158 @@
+
+  Justin's suggestion:
+
+  1. watch the video
+
+  2. experiment in Jupyter with client you created etc
+
+
+
+  short lifespan token from iris to run the SF API
+  this is for the special user to run the SF API?
+
+  where is that documented: 
+
+
+  https://docs.nersc.gov/services/sfapi/
+
+  API client
+
+  login to IRIS 
+
+  resources:
+
+    SPIN channel in nersc user group slack: what is that slack workspace url
+
+    https://www.nersc.gov/users/nersc-user-group
+
+    help.nersc.gov: more advanced questions - request to be routed to
+                    Justin Cook
+
+    monthly nersc user calls
+
+  sfapi youtube video: https://www.youtube.com/watch?v=Nacv6iLcA5A
+  follow this video <--- jupyter test node
+
+  jupyter.nersc.gov <---- use the jupyter for sfapi
+
+
+  1. read sfapi documentation - ensure that aligns with what you're
+     doing
+
+
+  2. setup a development workflow - so you can test things quickly
+     without the weight with a full deployent with SPIN.
+
+     you can setup development on perlmutter itself,
+     you can push containers to SPIN, use container on desktop
+     with sfapi locally.
+
+     local sfapi - this is step 0.
+
+
+     say you're serving data only from NERSC filesystem...
+
+     split sfapi and data visualization steps;
+
+     and this all implies local sfapi - after studying the docs
+
+     STUDY THE DOCS!
+     1. login to iris
+     2. create client with security levels
+     3. give lifetime and IP restrictions when creating client
+     4. exchange client credentials client and IRIS for access token - 
+     5. call sfapi using the access token gotten from the client assertion
+
+   SFAPI stuff above
+
+   note: OnePassord
+
+   NEXT SECTION : push the containers
+
+   
+     1. docker login with NERSC credentials: registry.nersc.gov
+
+     2. name the container the right tag - see the repo comments in build.sh
+        for instructions, and build it...
+        confirm it's there with docker images
+
+     3. then docker push registry.nersc.gov
+        docker push registry.nersc.gov/atom/ips_fastran_test/fastapi_example:latest
+
+        note: docker push just reads the container tag to know where to push it;
+        the registry must examine the "atom" and namespace etc
+
+
+     4. Nest follow the instructions on the slide from the seminar
+
+
+     note: make sure to use this URL: <ingress-name>.<namespace>.development.svc.spin.nersc.org
+
+  NEXT SECTION:
+
+     how to change the containers and redeploy:
+
+     1. rebuild the container with the change; keep the same tag
+     
+     2. re-push
+
+     3. Rancher automatically will update and redeploy since we set to Pull:Always
+
+
+  Next steps TODO:
+
+  1. fix the vite error and re-push your containers
+
+  2. replacing localhost between backend and frontend
+     these hostnames are the "ingresses" we configured for each container?
+     or use main ingress name or host name of deployment
+
+     ingress name will for sure work
+
+
+  3. watch the sfapi tutorial video on youtube, and do sfapi examples
+     in jupyter
+
+
+  4. now you can start having the rancher deployment interact with sfapi
+     to plot some data or generate some data or whatever
+
+
+
+  we could display status on frontend read from backend - this endpoint
+  does not require authentication
+
+  ensure that sfapi is being used for plotting
+
+
+  use the ingresses for hostnames, or the deployment names should work too
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

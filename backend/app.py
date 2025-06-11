@@ -20,6 +20,10 @@ app.add_middleware( \
 
 @app.get("/", response_class=Response)
 async def read_root():
+
+# the below would need to be a request sent to sfapi - if it's too big 
+# golden rule: if you would not run this in a login node don't run it in SPIN
+
   x = np.linspace(0, 10, 100)
   y = np.sin(x)
 
